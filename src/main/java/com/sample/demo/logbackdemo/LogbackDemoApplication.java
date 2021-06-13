@@ -36,17 +36,22 @@ public class LogbackDemoApplication {
 		ExecutorService executorService = null;
 		TestComponent1 testCom1 = context.getBean(TestComponent1.class);
 		TestComponent2 testCom2 = context.getBean(TestComponent2.class);
-		//testCom1.processStep(val1);
-		//testCom2.processStep(val2);
+		testCom1.processStep(val1);
+		testCom2.processStep(val2);
+		/*
 		Runnable runnable1 = () -> {
 			System.err.println("started thread1");
+			log.info("started thread1");
 			testCom1.processStep(val1);
+			log.info("ended thread1");
 			System.err.println("ended thread1");
 
 		};
 		Runnable runnable2 = () -> {
 			System.err.println("started thread2");
+			log.info("started thread2");
 			testCom2.processStep(val2);
+			log.info("ended thread2");
 			System.err.println("ended thread2");
 		};
 
@@ -57,11 +62,10 @@ public class LogbackDemoApplication {
 		}catch (Exception e ){
 			log.info(e.getMessage());
 		}
-
 		finally{
 			executorService.shutdown();
 		}
-
+        */
 		LoggerContext loggerContext = (LoggerContext) LoggerFactory.getILoggerFactory();
 		loggerContext.stop();
 	}
