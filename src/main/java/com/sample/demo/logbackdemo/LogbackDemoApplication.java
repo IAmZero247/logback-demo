@@ -31,6 +31,7 @@ public class LogbackDemoApplication {
 
 
 		if (val1 == null  || val2 == null ){
+			log.error("Param1 or Param2 is not defined in environment");
 			throw  new Exception( "Param1 or Param2 is not defined in environment");
 		}
 		ExecutorService executorService = null;
